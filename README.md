@@ -3,21 +3,21 @@ This project uses BERTopic along with OpenAI's GPT-4o-mini to generate meaningfu
 
 The project is split into 3 efficient, modular parts to ensure reusability and fast experimentation.
 
-## 🧠 Project Structure
+## Project Structure
 
-### 🔹 Part 1: Topic Modeling Pipeline + Caching  
+### Part 1: Topic Modeling Pipeline + Caching  
 - Load the [`neuralwork/arxiver`](https://huggingface.co/datasets/neuralwork/arxiver) dataset.
 - Preprocess abstracts.
 - Apply **BERTopic** for topic modeling.
 - Use **GPT-4o-mini** to assign **descriptive topic names**.
 - Save results (`info, topic, topic name`) and visualisations into a CSV in Google Drive — so you **never have to re-run** this compute-heavy step again.
 
-### 🔹 Part 2: Final Dataset Construction  
+### Part 2: Final Dataset Construction  
 - Download original dataset (full metadata: `id, title, abstract, authors, date, link, markdown`).
 - Merge with saved topic modeling results from Part 1.
 - Final DataFrame format: `id | title | abstract | authors | published_date | link | markdown | topic | Topic Name`
 
-### 🔹 Part 3: Insights & Analysis  
+### Part 3: Insights & Analysis  
 - Visualizations:
 - `topic_model.visualize_barchart()`
 - `visualize_heatmap()`
@@ -46,14 +46,14 @@ The project is split into 3 efficient, modular parts to ensure reusability and f
 
 ---
 
-## 🗂️ Dataset Details
+## Dataset Details
 - **Source**: [neuralwork/arxiver](https://huggingface.co/datasets/neuralwork/arxiver)
 - **Fields**: ID, Title, Abstract, Authors, Date, Markdown, Link.
 - **Size**: 63,357 papers (September 2022 – October 2023)
   
 ---
 
-## 🛠️ Model & Config
+## Model & Config
 - **Embedding**: `all-MiniLM-L6-v2`
 - **UMAP**:
 - `n_neighbors=10`, `min_dist=0.1`
@@ -64,7 +64,7 @@ The project is split into 3 efficient, modular parts to ensure reusability and f
 
 ---
 
-## 📊 Visualizations
+## Visualizations
 (Open the notebook to view interactive graphs)
 
 | Type | Sample |
@@ -75,7 +75,7 @@ The project is split into 3 efficient, modular parts to ensure reusability and f
 
 ---
 
-## 🧪 Sample Analysis (Top 5 Topics)
+## Sample Analysis (Top 5 Topics)
 
 | Topic Name | Peak Month | Trough Month | Total Papers |
 |------------|------------|--------------|--------------|
@@ -86,7 +86,7 @@ The project is split into 3 efficient, modular parts to ensure reusability and f
 | Quantum Phase Transitions | Mar 2023 (842) | Nov 2022 (1) | 7659 |
 
 ---
-## 💡 Why This Matters
+## Why This Matters
 
 - **Faster Iteration**: Cached outputs (topics + names) make it easy to rerun analysis anytime.
 - **Human-Centric Topics**: GPT-4o naming boosts clarity and presentation value.
